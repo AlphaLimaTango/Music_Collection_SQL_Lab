@@ -39,3 +39,4 @@ album3.save
 
 p Album.all
 p Album.find_album_by_artist(artist2.id)
+p album1.show_artist
