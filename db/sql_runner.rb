@@ -1,5 +1,6 @@
 require('pg')
 
+
 class SqlRunner
 
   def self.run(sql, values =[])
@@ -10,6 +11,6 @@ class SqlRunner
     ensure
       db.close() if db != nil
     end
-    return result
-  end 
+    return results
+  end
 end
