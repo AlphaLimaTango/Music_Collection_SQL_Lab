@@ -55,4 +55,18 @@ class Album
     album_found = SqlRunner.run(sql, values).first
     return Album.new(album_found)
   end
+
+  # def update(new_title)
+  #   sql = 'UPDATE albums SET title = $1 WHERE id = $2;'
+  #   values = [new_title, @id]
+  #   SqlRunner.run(sql, values)
+  # end -- for changing one item
+
+  def update(update)
+    sql = 'UPDATE albums SET (title, genre) = ($1, $2) WHERE id = $3;'
+    values = [update['title'], update['genre'], @id]
+    SqlRunner.run(sql, values)
+  end #updating multiple keys
+
+
 end

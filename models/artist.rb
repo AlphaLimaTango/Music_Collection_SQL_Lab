@@ -22,6 +22,12 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  def self.all()
+    sql = 'SELECT * FROM artists;'
+    all_artists = SqlRunner.run(sql)
+    return all_artists.map { |artist| Artist.new(artist)  }
+  end
+
   def self.delete_all()
     sql = 'DELETE FROM artists;'
     SqlRunner.run(sql)
@@ -32,5 +38,11 @@ class Artist
     values = [id]
     artist_found = SqlRunner.run(sql, values).first
     return Artist.new(artist_found)
+  end
+
+  def update(new_artist)
+    sql = 'UPDATE artists SET name = $1 WHERE id = $2;'
+    values = [new_artist, @id]
+    SqlRunner.run(sql, values)
   end
 end

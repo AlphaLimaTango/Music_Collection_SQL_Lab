@@ -37,7 +37,12 @@ album1.save
 album2.save
 album3.save
 
-album2.delete
+album1.update({
+  'title' => 'Dolly Partons Greatest Hits',
+  'genre' => 'country'
+})
+# album2.delete
+# artist2.delete
 
 p Album.all
 # p Album.find_album_by_artist(artist2.id)
