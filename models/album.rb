@@ -62,11 +62,13 @@ class Album
   #   SqlRunner.run(sql, values)
   # end -- for changing one item
 
-  def update(update)
+  def update
     sql = 'UPDATE albums SET (title, genre) = ($1, $2) WHERE id = $3;'
-    values = [update['title'], update['genre'], @id]
+    values = [@title, @genre, @id]
     SqlRunner.run(sql, values)
   end #updating multiple keys
+
+  movie3.update({'title' => 'smokeback mountain', 'genre' => food documentary})
 
 
 end
